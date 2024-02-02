@@ -2,9 +2,11 @@ import { NextResponse, NextRequest } from 'next/server'
 import { contactsConfig } from '@/config';
 
 export async function GET(req: NextRequest) {
+     const page = Number(req?.nextUrl?.searchParams.get('page'))
+    
     try {
-        const page= req.nextUrl.searchParams
-        let contacts = await contactsConfig.listsList()        
+
+        let contacts = await contactsConfig.listsList({page: page??1})        
         return NextResponse.json(contacts);
     } catch (error) {
         console.log(error)

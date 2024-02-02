@@ -5,7 +5,7 @@ import { noticeConfig } from '@/config';
 export default async function Page() {
     async function listNotices() {
         try {
-            const data = await noticeConfig.campaignsList()
+            const data = await noticeConfig.campaignsList({ page: 1 })
             return data
         } catch (error) {
             console.error("Error fetching campaigns:", error);

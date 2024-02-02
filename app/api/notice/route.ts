@@ -2,9 +2,11 @@ import { NextResponse, NextRequest } from 'next/server'
 import { noticeConfig } from '@/config';
 
 export async function GET(req: NextRequest) {
+    const page = Number(req?.nextUrl?.searchParams.get('page'))
+    
     async function listNotice() {
         try {
-            const data = await noticeConfig.campaignsList()
+            const data = await noticeConfig.campaignsList({page: page??1})
             return data
         } catch (error) {
             console.error("Error fetching campaigns:", error);
