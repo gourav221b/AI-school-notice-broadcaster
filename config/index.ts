@@ -1,0 +1,6 @@
+export {callchimpConfig} from './callchimp'
+export {noticeConfig} from './notice'
+export {phoneNumbersConfig } from './phones'
+export {callsConfig } from './calls'
+export {contactsConfig} from './contacts'
+export {contactConfig} from './contacts'
